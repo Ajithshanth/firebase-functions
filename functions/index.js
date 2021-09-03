@@ -315,10 +315,7 @@ exports.createCount = functions.firestore
     const dates = [];
     const counts = [];
 
-    for (var i = 0; i < finalOrd.length; i++) {
-      dates.push(finalOrd[i][0]);
-      counts.push(finalOrd[i][1]);
-    }
+     
 
     const graph = admin
       .firestore()
@@ -365,9 +362,7 @@ exports.createCount = functions.firestore
       [docListArrayN[j]].forEach((month) => {
         console.log(docListArrayN[j]);
         const documentReference = graph.doc(month);
-        for (var i = 0; i < dates.length; i++) {
           return documentReference.set(allDatesCounts[j]);
-        }
       });
     }
   });
